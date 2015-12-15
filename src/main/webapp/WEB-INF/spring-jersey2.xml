@@ -12,4 +12,5 @@
 
 	<!-- scans packages to find and register beans within the application context -->
 	<bean id="custserv" class="org.gaurav.restws.service.CustomerServiceImpl" />
+	<bean id="custDAO" class="org.gaurav.restws.dao.CustomerDAOImpl" />
 </beans>

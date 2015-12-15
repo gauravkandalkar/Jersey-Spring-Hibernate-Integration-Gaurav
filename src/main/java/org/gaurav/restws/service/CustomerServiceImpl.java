@@ -5,12 +5,14 @@ import java.util.List;
 import org.gaurav.restws.dao.CustomerDAOImpl;
 import org.gaurav.restws.dao.IDataDAO;
 import org.gaurav.restws.vo.CustomerVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class CustomerServiceImpl implements CustomerService {
 
-	
-	IDataDAO<CustomerVO> custDAO = new CustomerDAOImpl();
+	@Autowired
+	IDataDAO<CustomerVO> custDAO;
 
 	/* (non-Javadoc)
 	 * @see org.gaurav.restws.service.CustomerService#getCustomer(long)
