@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Jersey-Spring-Integration-Gaurav</name>
+	<name>Jersey-Spring-Hibernate-Integration-Gaurav</name>
 	<comment>Jersey web service using both XML and JSON as request/response. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
 	<projects>
 	</projects>
