@@ -2,10 +2,15 @@ package org.gaurav.restws.vo;
 
 import java.util.Map;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
-
+@Entity
 @XmlRootElement
 public class CustomerVO {
+	@Id
+	@GeneratedValue
 	private long customerID;
 	private String firstName;
 	private String lastName;

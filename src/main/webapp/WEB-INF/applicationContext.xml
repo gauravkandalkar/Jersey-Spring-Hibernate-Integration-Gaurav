@@ -8,9 +8,9 @@
 
 	<!-- to activate annotations in beans already registered in the ApplicationContext -->
 	<!-- <context:annotation-config /> -->
+	<import resource="context/jpaBeanContext.xml" />
+	<import resource="context/beanContext.xml" />
+	
 	<context:component-scan base-package="org.gaurav" />
 
-	<!-- scans packages to find and register beans within the application context -->
-	<bean id="custserv" class="org.gaurav.restws.service.CustomerServiceImpl" />
-	<bean id="custDAO" class="org.gaurav.restws.dao.CustomerDAOImpl" />
 </beans>
