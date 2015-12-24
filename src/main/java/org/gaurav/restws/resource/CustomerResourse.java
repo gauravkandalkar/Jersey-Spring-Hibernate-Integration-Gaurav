@@ -29,7 +29,7 @@ import org.springframework.stereotype.Component;
 @Produces(MediaType.APPLICATION_JSON)
 public class CustomerResourse {
 
-	@Autowired
+	@Autowired //@Resourse (this is JSR 250 annotation) will also work same as that of @Autowired
 	CustomerService custserv;
 
 	@GET

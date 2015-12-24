@@ -3,8 +3,10 @@ package org.gaurav.restws.vo;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="TEMP_Table")
 public class TempVO {
 	@Id
 	@GeneratedValue

@@ -2,10 +2,18 @@ package org.gaurav.restws.dao;
 
 import java.util.List;
 
-import org.gaurav.restws.vo.ItemVO;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
+import org.gaurav.restws.vo.ItemVO;
+import org.springframework.stereotype.Repository;
+
+@Repository("itemRepository")
 public class ItemDAO implements IDataDAO<ItemVO>{
 
+	@PersistenceContext
+	private EntityManager em;
+	
 	@Override
 	public ItemVO readByID(long id) {
 		// TODO Auto-generated method stub
@@ -20,8 +28,8 @@ public class ItemDAO implements IDataDAO<ItemVO>{
 
 	@Override
 	public long insert(ItemVO t) {
-		// TODO Auto-generated method stub
-		return 0;
+		em.persist(t);
+		return t.getItemId();
 	}
 
 	@Override

@@ -1,11 +1,30 @@
 package org.gaurav.restws.vo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@Entity
+@Table(name="Item")
+@XmlRootElement
 public class ItemVO {
 
+	@Id
+	@GeneratedValue
 	private long itemId;
+	
+	@Column(name="ItemName")
 	private String itemName;
+	
 	private double mrp;
 
+	public ItemVO()
+	{
+		
+	}
 	public ItemVO(long itemId, String itemName, double d) {
 		super();
 		this.itemId = itemId;

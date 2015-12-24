@@ -1,6 +1,10 @@
 package org.gaurav.restws.service;
 
-public class ItemService {
+import org.gaurav.restws.vo.ItemVO;
 
-	
+public interface ItemService {
+
+	ItemVO save(ItemVO item);
+	ItemVO get(long itemId);
+
 }
