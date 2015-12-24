@@ -1,32 +1,19 @@
 package org.gaurav.restws.vo;
 
-import java.util.Map;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-
-@XmlRootElement
-public class CustomerVO {
-	
+@Entity
+public class TempVO {
+	@Id
+	@GeneratedValue
 	private long customerID;
-	
-	
+
 	private String firstName;
-	
 
 	private String lastName;
-	
-	private Map<Long,OrderVO> orders;
 
-	public CustomerVO(){
-		
-	}
-	public CustomerVO(long custID,String fname, String lname)
-	{
-		this.customerID=custID;
-		this.firstName=fname;
-		this.lastName=lname;
-	}
 	public long getCustomerID() {
 		return customerID;
 	}
@@ -50,12 +37,4 @@ public class CustomerVO {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
-	public Map<Long,OrderVO> getOrders() {
-		return orders;
-	}
-	public void setOrders(Map<Long,OrderVO> orders) {
-		this.orders = orders;
-	}
-
 }

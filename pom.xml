@@ -82,6 +82,12 @@
 					<groupId>org.springframework</groupId>
 					<artifactId>spring-beans</artifactId>
 				</exclusion>
+				
+				<!-- exclude bean-validator without fail as this causes org.jboss.logging error -->
+				<exclusion>
+					<groupId>org.glassfish.hk2.external</groupId>
+					<artifactId>bean-validator</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 
@@ -127,6 +133,20 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>5.0.5.Final</version>
+		<!-- This is just for precausion in case org.jboss.logging error occurs 	
+			<exclusions>
+				<exclusion>
+					<groupId>org.jboss.logging</groupId>
+					<artifactId>jboss-logging</artifactId>
+				</exclusion>
+			</exclusions> -->
+		</dependency>
+		
+		<!-- adding latest jboss.logger as older version causes error -->
+		<dependency>
+			<groupId>org.jboss.logging</groupId>
+			<artifactId>jboss-logging</artifactId>
+			<version>3.3.0.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.transaction</groupId>

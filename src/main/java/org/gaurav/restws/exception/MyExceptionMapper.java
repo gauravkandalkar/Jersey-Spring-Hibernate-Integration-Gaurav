@@ -6,7 +6,7 @@ import javax.ws.rs.ext.Provider;
 
 import org.gaurav.restws.model.MyErrDisplay;
 
-@Provider
+
 public class MyExceptionMapper implements ExceptionMapper<MyException>{
 
 
