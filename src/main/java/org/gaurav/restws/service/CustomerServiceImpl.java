@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.gaurav.restws.dao.CustomerDAOImpl;
 import org.gaurav.restws.dao.IDataDAO;
-import org.gaurav.restws.vo.CustomerVO;
+import org.gaurav.restws.vo.Customers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,13 +12,13 @@ import org.springframework.stereotype.Service;
 public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
-	IDataDAO<CustomerVO> custDAO;
+	IDataDAO<Customers> custDAO;
 
 	/* (non-Javadoc)
 	 * @see org.gaurav.restws.service.CustomerService#getCustomer(long)
 	 */
 	@Override
-	public CustomerVO getCustomer(long id) {
+	public Customers getCustomer(long id) {
 		return custDAO.readByID(id);
 	}
 
@@ -26,7 +26,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 * @see org.gaurav.restws.service.CustomerService#getAllCustomer()
 	 */
 	@Override
-	public List<CustomerVO> getAllCustomer() {
+	public List<Customers> getAllCustomer() {
 		return custDAO.readAll();
 	}
 	
@@ -34,7 +34,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 * @see org.gaurav.restws.service.CustomerService#insertNewCustomer(org.gaurav.restws.vo.CustomerVO)
 	 */
 	@Override
-	public CustomerVO insertNewCustomer(CustomerVO cust) {
+	public Customers insertNewCustomer(Customers cust) {
 		return custDAO.insert(cust);	
 	}
 	
@@ -51,7 +51,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 * @see org.gaurav.restws.service.CustomerService#updateCustomer(org.gaurav.restws.vo.CustomerVO)
 	 */
 	@Override
-	public CustomerVO updateCustomer(CustomerVO cust)
+	public Customers updateCustomer(Customers cust)
 	{
 		if ( custDAO.update(cust) != 0)
 		{

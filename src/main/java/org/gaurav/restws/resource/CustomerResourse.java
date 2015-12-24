@@ -19,8 +19,8 @@ import javax.ws.rs.core.UriInfo;
 
 import org.gaurav.restws.exception.MyException;
 import org.gaurav.restws.service.CustomerService;
-import org.gaurav.restws.vo.CustomerVO;
-import org.gaurav.restws.vo.OrderVO;
+import org.gaurav.restws.vo.Customers;
+import org.gaurav.restws.vo.Orders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -33,14 +33,14 @@ public class CustomerResourse {
 	CustomerService custserv;
 
 	@GET
-	public List<CustomerVO> getCustomers() {
+	public List<Customers> getCustomers() {
 		return custserv.getAllCustomer();
 	}
 
 	@GET
 	@Path("/{custID}")
-	public CustomerVO getCustomer(@PathParam("custID") long custID) throws MyException {
-		CustomerVO customer = custserv.getCustomer(custID);
+	public Customers getCustomer(@PathParam("custID") long custID) throws MyException {
+		Customers customer = custserv.getCustomer(custID);
 		if (customer == null) {
 			throw new MyException(Status.NOT_FOUND, "data not found for " + custID);
 		}
@@ -49,8 +49,8 @@ public class CustomerResourse {
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response insertNewCustomer(CustomerVO cust, @Context UriInfo uriInfo) {
-		CustomerVO NewCustomer = custserv.insertNewCustomer(cust);
+	public Response insertNewCustomer(Customers cust, @Context UriInfo uriInfo) {
+		Customers NewCustomer = custserv.insertNewCustomer(cust);
 		String newid = String.valueOf(NewCustomer.getCustomerID());
 		URI newuri = uriInfo.getAbsolutePathBuilder().path(newid).build();
 		return Response.created(newuri).entity(NewCustomer).build();
@@ -58,7 +58,7 @@ public class CustomerResourse {
 
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
-	public CustomerVO updateCustomer(CustomerVO cust) {
+	public Customers updateCustomer(Customers cust) {
 		return custserv.updateCustomer(cust);
 	}
 
@@ -75,7 +75,7 @@ public class CustomerResourse {
 
 	@Path("/{custID}/orders")
 	@GET
-	public List<OrderVO> getOrders() {
+	public List<Orders> getOrders() {
 		return null;
 	}
 }

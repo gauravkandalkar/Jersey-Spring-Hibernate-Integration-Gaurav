@@ -16,24 +16,24 @@ public class OrderItems {
 	private long OrderItemsID;
 
 	@OneToOne
-	private ItemVO item;
+	private Items item;
 
 	private int quantity;
 
 	@ManyToOne
-	private OrderVO order;
+	private Orders order;
 
-	public OrderItems(ItemVO item, int quantity) {
+	public OrderItems(Items item, int quantity) {
 		super();
 		this.item = item;
 		this.quantity = quantity;
 	}
 
-	public ItemVO getItem() {
+	public Items getItem() {
 		return item;
 	}
 
-	public void setItem(ItemVO item) {
+	public void setItem(Items item) {
 		this.item = item;
 	}
 

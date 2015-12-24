@@ -2,16 +2,16 @@ package org.gaurav.restws.service;
 
 import java.util.List;
 
-import org.gaurav.restws.vo.OrderVO;
+import org.gaurav.restws.vo.Orders;
 
 public interface OrderService {
-	OrderVO getOrder(long id);
+	Orders getOrder(long id);
 
-	List<OrderVO> getAllOrdersForCustomer(long custid);
+	List<Orders> getAllOrdersForCustomer(long custid);
 
-	OrderVO createNewOrder(OrderVO ord);
+	Orders createNewOrder(Orders ord);
 
 	int removeOrder(long id);
 
-	OrderVO updateOrder(OrderVO ord);
+	Orders updateOrder(Orders ord);
 }

@@ -1,10 +1,13 @@
 package org.gaurav.restws.service;
 
-import org.gaurav.restws.vo.ItemVO;
+import java.util.List;
+
+import org.gaurav.restws.vo.Items;
 
 public interface ItemService {
 
-	ItemVO save(ItemVO item);
-	ItemVO get(long itemId);
+	Items save(Items item);
+	Items get(long itemId);
+	List<Items> getAll();
 
 }

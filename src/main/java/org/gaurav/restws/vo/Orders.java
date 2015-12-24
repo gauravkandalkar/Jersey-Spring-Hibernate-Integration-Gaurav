@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -14,20 +15,20 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @XmlRootElement
 @Table(name="Orders")
-public class OrderVO {
+public class Orders {
 
 	@Id
 	@GeneratedValue
 	private long orderID;
 	//private long orderSquenceNo;
 	//private double totalAmt;
-	@OneToMany(mappedBy="order",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="order",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private List<OrderItems> oderItems;
 
 	@ManyToOne
-	private CustomerVO customer;
+	private Customers customer;
 	
-	public OrderVO()
+	public Orders()
 	{	
 	}
 	
@@ -47,11 +48,11 @@ public class OrderVO {
 		this.oderItems = oderItems;
 	}
 
-	public CustomerVO getCustomer() {
+	public Customers getCustomer() {
 		return customer;
 	}
 
-	public void setCustomer(CustomerVO customer) {
+	public void setCustomer(Customers customer) {
 		this.customer = customer;
 	}
 

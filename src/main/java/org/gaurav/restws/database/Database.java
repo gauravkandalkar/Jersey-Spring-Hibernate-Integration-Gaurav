@@ -3,19 +3,19 @@ package org.gaurav.restws.database;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.gaurav.restws.vo.CustomerVO;
-import org.gaurav.restws.vo.ItemVO;
+import org.gaurav.restws.vo.Customers;
+import org.gaurav.restws.vo.Items;
 
 public class Database {
-		private static Map<Long, ItemVO> items = new HashMap<>();
-		private static Map<Long, CustomerVO> customers = new HashMap<>();
+		private static Map<Long, Items> items = new HashMap<>();
+		private static Map<Long, Customers> customers = new HashMap<>();
 
-		public static Map<Long, CustomerVO> getCustomers() {
+		public static Map<Long, Customers> getCustomers() {
 			return customers;
 		}
 
 
-		public static Map<Long, ItemVO> getItems() {
+		public static Map<Long, Items> getItems() {
 			return items;
 		}
 

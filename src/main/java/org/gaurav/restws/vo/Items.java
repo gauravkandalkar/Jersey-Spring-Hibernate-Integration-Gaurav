@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name="Item")
 @XmlRootElement
-public class ItemVO {
+public class Items {
 
 	@Id
 	@GeneratedValue
@@ -21,11 +21,11 @@ public class ItemVO {
 	
 	private double mrp;
 
-	public ItemVO()
+	public Items()
 	{
 		
 	}
-	public ItemVO(long itemId, String itemName, double d) {
+	public Items(long itemId, String itemName, double d) {
 		super();
 		this.itemId = itemId;
 		this.itemName = itemName;

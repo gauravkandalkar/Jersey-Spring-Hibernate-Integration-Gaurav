@@ -2,18 +2,18 @@ package org.gaurav.restws.service;
 
 import java.util.List;
 
-import org.gaurav.restws.vo.CustomerVO;
+import org.gaurav.restws.vo.Customers;
 
 public interface CustomerService {
 
-	CustomerVO getCustomer(long id);
+	Customers getCustomer(long id);
 
-	List<CustomerVO> getAllCustomer();
+	List<Customers> getAllCustomer();
 
-	CustomerVO insertNewCustomer(CustomerVO cust);
+	Customers insertNewCustomer(Customers cust);
 
 	int removeCustomer(long id);
 
-	CustomerVO updateCustomer(CustomerVO cust);
+	Customers updateCustomer(Customers cust);
 
 }

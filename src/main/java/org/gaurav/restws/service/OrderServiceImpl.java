@@ -3,25 +3,25 @@ package org.gaurav.restws.service;
 import java.util.List;
 
 import org.gaurav.restws.dao.IDataDAO;
-import org.gaurav.restws.vo.OrderVO;
+import org.gaurav.restws.vo.Orders;
 
 public class OrderServiceImpl implements OrderService{
 
 
-	IDataDAO<OrderVO> orderDAO;
+	IDataDAO<Orders> orderDAO;
 	
 	@Override
-	public OrderVO getOrder(long id) {
+	public Orders getOrder(long id) {
 		return null;
 	}
 
 	@Override
-	public List<OrderVO> getAllOrdersForCustomer(long custID) {
+	public List<Orders> getAllOrdersForCustomer(long custID) {
 		return null;
 	}
 
 	@Override
-	public OrderVO createNewOrder(OrderVO cust) {
+	public Orders createNewOrder(Orders cust) {
 		return null;
 	}
 
@@ -31,7 +31,7 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Override
-	public OrderVO updateOrder(OrderVO cust) {
+	public Orders updateOrder(Orders cust) {
 		return null;
 	}
 

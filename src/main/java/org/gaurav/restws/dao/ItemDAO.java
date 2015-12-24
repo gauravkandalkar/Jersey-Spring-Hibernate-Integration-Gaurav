@@ -4,30 +4,33 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
-import org.gaurav.restws.vo.ItemVO;
+import org.gaurav.restws.vo.Items;
 import org.springframework.stereotype.Repository;
 
 @Repository("itemRepository")
-public class ItemDAO implements IDataDAO<ItemVO>{
+public class ItemDAO implements IDataDAO<Items>{
 
 	@PersistenceContext
 	private EntityManager em;
 	
 	@Override
-	public ItemVO readByID(long id) {
-		// TODO Auto-generated method stub
+	public Items readByID(long id) {
+	
+		//Query query = em.createQuery("select g from ItemVO g )
 		return null;
 	}
 
 	@Override
-	public List<ItemVO> readAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Items> readAll() {
+		Query query=em.createQuery("select g from Items g");
+		List Items = query.getResultList();
+		return Items;
 	}
 
 	@Override
-	public ItemVO insert(ItemVO t) {
+	public Items insert(Items t) {
 		em.persist(t);
 		em.flush();
 		return t;
@@ -40,7 +43,7 @@ public class ItemDAO implements IDataDAO<ItemVO>{
 	}
 
 	@Override
-	public int update(ItemVO t) {
+	public int update(Items t) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

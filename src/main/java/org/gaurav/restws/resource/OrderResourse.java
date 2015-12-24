@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.gaurav.restws.service.OrderService;
 import org.gaurav.restws.service.OrderServiceImpl;
-import org.gaurav.restws.vo.OrderVO;
+import org.gaurav.restws.vo.Orders;
 
 
 @Path("/")
@@ -19,7 +19,7 @@ public class OrderResourse {
 
 	OrderService ordserv = new OrderServiceImpl();
 	@GET
-	public List<OrderVO> getAllOrdersForCustomer(@PathParam("custID") long custID)
+	public List<Orders> getAllOrdersForCustomer(@PathParam("custID") long custID)
 	{
 		return ordserv.getAllOrdersForCustomer(custID);
 	}
