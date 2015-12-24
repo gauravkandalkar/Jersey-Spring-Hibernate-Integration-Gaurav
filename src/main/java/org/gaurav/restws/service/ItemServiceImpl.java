@@ -19,8 +19,7 @@ public class ItemServiceImpl implements ItemService {
 	@Transactional
 	public ItemVO save(ItemVO item)
 	{
-		long newId = itemRepository.insert(item);
-		return itemRepository.readByID(newId);
+		return itemRepository.insert(item);
 	}
 
 	@Override

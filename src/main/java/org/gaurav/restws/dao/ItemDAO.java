@@ -27,9 +27,10 @@ public class ItemDAO implements IDataDAO<ItemVO>{
 	}
 
 	@Override
-	public long insert(ItemVO t) {
+	public ItemVO insert(ItemVO t) {
 		em.persist(t);
-		return t.getItemId();
+		em.flush();
+		return t;
 	}
 
 	@Override

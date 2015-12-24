@@ -35,12 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 */
 	@Override
 	public CustomerVO insertNewCustomer(CustomerVO cust) {
-		long result = custDAO.insert(cust);
-		if (result != 0 )
-		{
-			return custDAO.readByID(result);
-		}
-		return null;
+		return custDAO.insert(cust);	
 	}
 	
 	/* (non-Javadoc)

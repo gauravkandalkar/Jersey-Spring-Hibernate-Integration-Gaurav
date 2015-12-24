@@ -30,10 +30,10 @@ public class CustomerDAOImpl implements IDataDAO<CustomerVO> {
 	}
 
 	@Override
-	public long insert(CustomerVO t) {
+	public CustomerVO insert(CustomerVO t) {
 		t.setCustomerID(custtbl.size() + 1);
 		custtbl.put(t.getCustomerID(), t);
-		return t.getCustomerID();
+		return t;
 	}
 
 	@Override

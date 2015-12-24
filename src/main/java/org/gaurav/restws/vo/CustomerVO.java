@@ -1,13 +1,23 @@
 package org.gaurav.restws.vo;
 
+import java.util.List;
 import java.util.Map;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-
+@Entity
 @XmlRootElement
+@Table(name="Customers")
 public class CustomerVO {
 	
+	@Id
+	@GeneratedValue
 	private long customerID;
 	
 	
@@ -16,7 +26,8 @@ public class CustomerVO {
 
 	private String lastName;
 	
-	private Map<Long,OrderVO> orders;
+	@OneToMany(mappedBy="customer",cascade=CascadeType.ALL)
+	private List<OrderVO> orders;
 
 	public CustomerVO(){
 		
@@ -51,10 +62,10 @@ public class CustomerVO {
 		this.lastName = lastName;
 	}
 	
-	public Map<Long,OrderVO> getOrders() {
+	public List<OrderVO> getOrders() {
 		return orders;
 	}
-	public void setOrders(Map<Long,OrderVO> orders) {
+	public void setOrders(List<OrderVO> orders) {
 		this.orders = orders;
 	}
 
