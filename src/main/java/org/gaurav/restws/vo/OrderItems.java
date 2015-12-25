@@ -6,7 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 @Entity
 @Table(name = "OrderItems")
 public class OrderItems {
@@ -23,6 +25,10 @@ public class OrderItems {
 	@ManyToOne
 	private Orders order;
 
+	public OrderItems()
+	{
+		
+	}
 	public OrderItems(Items item, int quantity) {
 		super();
 		this.item = item;

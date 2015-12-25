@@ -7,6 +7,7 @@ import org.gaurav.restws.dao.IDataDAO;
 import org.gaurav.restws.vo.Customers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -34,6 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 * @see org.gaurav.restws.service.CustomerService#insertNewCustomer(org.gaurav.restws.vo.CustomerVO)
 	 */
 	@Override
+	@Transactional
 	public Customers insertNewCustomer(Customers cust) {
 		return custDAO.insert(cust);	
 	}
@@ -42,6 +44,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 * @see org.gaurav.restws.service.CustomerService#removeCustomer(long)
 	 */
 	@Override
+	@Transactional
 	public int removeCustomer(long id)
 	{
 		return custDAO.delete(id);
@@ -51,6 +54,7 @@ public class CustomerServiceImpl implements CustomerService {
 	 * @see org.gaurav.restws.service.CustomerService#updateCustomer(org.gaurav.restws.vo.CustomerVO)
 	 */
 	@Override
+	@Transactional
 	public Customers updateCustomer(Customers cust)
 	{
 		if ( custDAO.update(cust) != 0)

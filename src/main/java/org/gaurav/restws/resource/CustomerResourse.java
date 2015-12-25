@@ -73,9 +73,10 @@ public class CustomerResourse {
 		return "Success";
 	}
 
+	
 	@Path("/{custID}/orders")
 	@GET
-	public List<Orders> getOrders() {
-		return null;
+	public OrderResourse getOrders() {
+		return new OrderResourse();
 	}
 }
