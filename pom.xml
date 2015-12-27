@@ -63,6 +63,13 @@
 			<scope>${jersey.scope}</scope>
 		</dependency>
 
+		<!-- Jersey client dependency for Integration test cases -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>1.19</version>
+		</dependency>
+
 		<!-- Jersey extension module providing support for Spring 3 integration -->
 		<dependency>
 			<groupId>org.glassfish.jersey.ext</groupId>
@@ -82,8 +89,9 @@
 					<groupId>org.springframework</groupId>
 					<artifactId>spring-beans</artifactId>
 				</exclusion>
-				
-				<!-- exclude bean-validator without fail as this causes org.jboss.logging error -->
+
+				<!-- exclude bean-validator without fail as this causes org.jboss.logging 
+					error -->
 				<exclusion>
 					<groupId>org.glassfish.hk2.external</groupId>
 					<artifactId>bean-validator</artifactId>
@@ -133,15 +141,11 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>5.0.5.Final</version>
-		<!-- This is just for precausion in case org.jboss.logging error occurs 	
-			<exclusions>
-				<exclusion>
-					<groupId>org.jboss.logging</groupId>
-					<artifactId>jboss-logging</artifactId>
-				</exclusion>
-			</exclusions> -->
+			<!-- This is just for precausion in case org.jboss.logging error occurs 
+				<exclusions> <exclusion> <groupId>org.jboss.logging</groupId> <artifactId>jboss-logging</artifactId> 
+				</exclusion> </exclusions> -->
 		</dependency>
-		
+
 		<!-- adding latest jboss.logger as older version causes error -->
 		<dependency>
 			<groupId>org.jboss.logging</groupId>
