@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.gaurav.restws.dao.IDataDAO;
 import org.gaurav.restws.dao.IOrderDAO;
+import org.gaurav.restws.dao.OrderDAOImpl;
 import org.gaurav.restws.vo.OrderReport;
 import org.gaurav.restws.vo.Orders;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class OrderServiceImpl implements OrderService{
 
 	@Autowired
-	IOrderDAO orderRepository;
+	IOrderDAO orderRepository; //= new OrderDAOImpl();
 	
 	@Override
 	public Orders getOrder(long id) {
@@ -41,11 +42,9 @@ public class OrderServiceImpl implements OrderService{
 		return orderRepository.getAllOrdersReport();
 	}
 
-
 	@Override
-	public List<Orders> getAllOrdersForCustomer(long custid) {
-		// TODO Auto-generated method stub
-		return null;
+	public  List<OrderReport> getAllOrdersForCustomer(long custid) {
+		return orderRepository.getAllOrdersForCustomer(custid);
 	}
 
 

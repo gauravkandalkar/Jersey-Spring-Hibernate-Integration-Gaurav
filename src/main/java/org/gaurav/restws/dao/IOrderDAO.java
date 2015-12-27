@@ -7,8 +7,8 @@ import org.gaurav.restws.vo.Orders;
 
 public interface IOrderDAO extends IDataDAO<Orders>{
 
-	OrderReport getCustTotalOrderReport(long custID);
-
 	List<OrderReport> getAllOrdersReport();
+
+	List<OrderReport> getAllOrdersForCustomer(long custid);
 
 }

@@ -20,13 +20,6 @@ public class OrderDAOImpl implements IOrderDAO {
 	/* (non-Javadoc)
 	 * @see org.gaurav.restws.dao.IOrderDAO#getCustTotalOrderReport(long)
 	 */
-	@Override
-	public OrderReport getCustTotalOrderReport(long custID)
-	{
-//	 Query query= em.createQuery("select new org.gaurav.restws.vo.CustomerTotalOrderReport(c.customerID, c.customerFristName, c.customerLastName, o.numberOfOrderes" +
-//	              "from Customers c, Orders o where o.customer ");	
-		return null;
-	}
 	
 	/* (non-Javadoc)
 	 * @see org.gaurav.restws.dao.IOrderDAO#getAllOrdersReport()
@@ -39,6 +32,20 @@ public class OrderDAOImpl implements IOrderDAO {
 				         " group by c.customerID,c.firstName,c.lastName");
 		
 		return query.getResultList();
+	}
+	
+	@Override
+	public List<OrderReport> getAllOrdersForCustomer(long custid) {
+
+		Query query = em.createQuery("select new org.gaurav.restws.vo.OrderReport(c.customerID,c.firstName,c.lastName,count(o.orderID))" +
+				" from Customers c, Orders o where c.customerID = o.customer.customerID" + 
+				" and o.customer.customerID=:custid "+
+		         " group by c.customerID,c.firstName,c.lastName");
+		
+		query.setParameter("custid", custid);
+		
+		return query.getResultList();
+
 	}
 	
 	@Override
@@ -70,6 +77,8 @@ public class OrderDAOImpl implements IOrderDAO {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	
 
 	
 }

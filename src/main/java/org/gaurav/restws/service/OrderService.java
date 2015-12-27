@@ -8,7 +8,7 @@ import org.gaurav.restws.vo.Orders;
 public interface OrderService {
 	Orders getOrder(long id);
 
-	List<Orders> getAllOrdersForCustomer(long custid);
+	List<OrderReport> getAllOrdersForCustomer(long custid);
 
 	Orders createNewOrder(Orders ord);
 
