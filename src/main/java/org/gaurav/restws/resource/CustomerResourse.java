@@ -11,6 +11,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.container.ResourceContext;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -22,14 +23,17 @@ import org.gaurav.restws.service.CustomerService;
 import org.gaurav.restws.vo.Customers;
 import org.gaurav.restws.vo.Orders;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
 @Path("/customers")
+// @Scope("singleton")
 @Produces(MediaType.APPLICATION_JSON)
 public class CustomerResourse {
 
-	@Autowired //@Resourse (this is JSR 250 annotation) will also work same as that of @Autowired
+	@Autowired // @Resourse (this is JSR 250 annotation) will also work same as
+				// that of @Autowired
 	CustomerService custserv;
 
 	@GET
@@ -72,11 +76,19 @@ public class CustomerResourse {
 		}
 		return "Success";
 	}
+	
+//implementing subresource in jersey+spring environment
+//please follow http://sleeplessinslc.blogspot.co.uk/2009/03/sub-resources-with-jerseyspring-jax-rs.html
 
+//The resource context can be utilized when instances of managed resource classes are to be returned by sub-resource locator methods. 
+//Such instances will be injected and managed within the declared scope just like instances of root resource classes.
+	@Context
+	private ResourceContext resourceContex;
 	
 	@Path("/{custID}/orders")
-	@GET
 	public OrderResourse getOrders() {
-		return new OrderResourse();
+		OrderResourse resource = resourceContex.getResource(OrderResourse.class);
+
+		return resource;
 	}
 }

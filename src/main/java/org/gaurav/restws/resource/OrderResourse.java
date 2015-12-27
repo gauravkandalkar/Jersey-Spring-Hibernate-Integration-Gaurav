@@ -11,21 +11,27 @@ import javax.ws.rs.core.MediaType;
 import org.gaurav.restws.service.OrderService;
 import org.gaurav.restws.service.OrderServiceImpl;
 import org.gaurav.restws.vo.OrderReport;
-import org.gaurav.restws.vo.Orders;
+import org.jvnet.hk2.spring.bridge.api.SpringScope;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
+//implementing subresource in jersey+spring environment
+//please follow http://sleeplessinslc.blogspot.co.uk/2009/03/sub-resources-with-jerseyspring-jax-rs.html
 
 @Component
 @Path("/")
+//@Scope("prototype")
 @Produces(MediaType.APPLICATION_JSON)
 public class OrderResourse {
 
 	@Autowired
-	OrderService orderService;
+	OrderService orderService;// = new OrderServiceImpl();
 	
 	@GET
-	public String getAllOrdersForCustomer(@PathParam("custID") long custID)
+	public List<OrderReport> getAllOrdersForCustomer(@PathParam("custID") long custID)
 	{
-		return null;
+		return orderService.getAllOrdersForCustomer(custID);
 	}
+	
 }
